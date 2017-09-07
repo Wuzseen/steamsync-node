@@ -12,11 +12,11 @@
     <body>
         <div ng-app='SteamGroupRecommender'>
             <div ng-controller='SteamGroupRecommender'>
-                <form id='add-user-form' ng-submit='AddUser()'>
-                    <label for='usr'>Enter Username</label>
-                    <input tooltips tooltip-size='large' tooltip-class='usn' tooltip-side='bottom' tooltip-template='Enter A Valid Steam Username or Profile URL. Profile cannot be private.' name='text' id='usr' class='form-control' ng-model='adduserfield'/>
-                    <input class='btn btn-default btn-round' type='submit' id='submit' value='Add User'/>{{lookupError}}<br>
+                <form id='add-user-form' ng-submit='AddUser()'> 
+                    <input class='btn btn-default btn-round userformelement' type='submit' id='submit' value='Add User'/>
+                    <input placeholder='Enter username...' tooltips tooltip-size='large' tooltip-class='usn' tooltip-side='bottom' tooltip-template='Enter A Valid Steam Username or Profile URL. Profile cannot be private.' name='text' id='usr' class='form-control userformelement' ng-model='adduserfield'/>                                 
                 </form>
+                {{lookupError}}
                 <h1>{{greeting}}</h1>
                 <h2>{{message}}</h2>
                 <div class='btn-group' ng-repeat="(key, value) in gameDict">

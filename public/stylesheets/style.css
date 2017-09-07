@@ -7,6 +7,11 @@ a {
   color: #00B7FF;
 }
 
+.userformelement {
+  float: left;
+  margin-right: 5px;
+}
+
 .table td {
   text-align: center;
   vertical-align: middle;
