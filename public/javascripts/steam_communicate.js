@@ -21,7 +21,7 @@ function buildSteamUrl(interface, method, version, options) {
 }
 
 
-angular.module('SteamGroupRecommender', ['ngTable'])
+angular.module('SteamGroupRecommender', ['ngTable','720kb.tooltips'])
     .controller('SteamGroupRecommender', ['$scope', '$http', '$q', 'NgTableParams', '$filter', function($scope, $http, $q, NgTableParams, $filter) {
         $scope.gameDict = {};
         $scope.userData = {};
@@ -76,6 +76,14 @@ angular.module('SteamGroupRecommender', ['ngTable'])
             gameInst.gameName = element.name;
         }
 
+        $scope.UsernameText = function(usn) {
+            try {
+                return usn + ': ' + $scope.gameDict[usn].gameList.game_count + ' games';
+            } catch(err) {
+                return usn;
+            }
+        }
+
         $scope.UsernameLookup = function(usn) { // Get 64 bit steam id for username. When found, look up games owned by the id
             var steamidRE = /"steamid":"[0-9]*"/;
             var personaRE = /"personaname":".*?"/;
@@ -98,6 +106,8 @@ angular.module('SteamGroupRecommender', ['ngTable'])
         };
 
         $scope.AddUser = function() {
+            var form = document.getElementById('add-user-form');
+            form.reset();
             $scope.lookupError = "";
             $scope.UsernameLookup($scope.adduserfield);
             if(!($scope.adduserfield in $scope.gameDict)) {

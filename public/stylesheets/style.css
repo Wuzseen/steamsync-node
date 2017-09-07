@@ -11,3 +11,37 @@ a {
   text-align: center;
   vertical-align: middle;
 }
+
+.btn-round-lg {
+  border-radius: 22.5px;
+}
+
+.btn-round {
+  border-radius: 17px;
+}
+
+.btn-round-sm {
+  border-radius: 15px;
+}
+
+.btn-round-xs {
+  border-radius: 11px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+  
+.btn-username {
+  margin-right: 5px;
+}
+
+.btn-username:hover {
+  background-color: red;
+}
+
+.btn-group {
+  display: inline-block;
+}
+
+tooltip tip.usn {
+  min-width: 300;
+}

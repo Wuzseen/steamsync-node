@@ -26,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/angular', express.static(path.join(__dirname, '/node_modules/angular/')));
 app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/')));
 app.use('/ng-table', express.static(path.join(__dirname, '/node_modules/ng-table/')));
+app.use('/tooltips', express.static(path.join(__dirname, '/node_modules/angular-tooltips/')));
 
 app.use('/steam', steamcalls);
 

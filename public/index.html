@@ -3,21 +3,24 @@
         <script src='/angular/angular.min.js'></script>
         <script src='/ng-table/bundles/ng-table.min.js'></script>
         <script src='/javascripts/steam_communicate.js'></script>
+        <script src='/tooltips/dist/angular-tooltips.min.js'></script>
         <link href='/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='/tooltips/dist/angular-tooltips.min.css' rel='stylesheet'>
         <link href='/ng-table/bundles/ng-table.min.css' rel='stylesheet'>
         <link href='/stylesheets/style.css' rel='stylesheet'>
     </head>
     <body>
         <div ng-app='SteamGroupRecommender'>
             <div ng-controller='SteamGroupRecommender'>
-                <form ng-submit='AddUser()'>
-                    Enter A Valid Steam Username or Profile URL. Profile cannot be private: <input name='text' ng-model='adduserfield' />
-                    <input type='submit' id='submit' value='Add User' />{{lookupError}}<br>
+                <form id='add-user-form' ng-submit='AddUser()'>
+                    <label for='usr'>Enter Username</label>
+                    <input tooltips tooltip-size='large' tooltip-class='usn' tooltip-side='bottom' tooltip-template='Enter A Valid Steam Username or Profile URL. Profile cannot be private.' name='text' id='usr' class='form-control' ng-model='adduserfield'/>
+                    <input class='btn btn-default btn-round' type='submit' id='submit' value='Add User'/>{{lookupError}}<br>
                 </form>
                 <h1>{{greeting}}</h1>
                 <h2>{{message}}</h2>
-                <div ng-repeat="(key, value) in gameDict">
-                    <img ng-src='{{userData[key].avatar}}'/> {{key}} : {{value.gameList.game_count}}<button ng-click='RemoveUser(key)'>Remove</button><br>                 
+                <div class='btn-group' ng-repeat="(key, value) in gameDict">
+                    <button class='btn btn-primary btn-round btn-username' ng-click='RemoveUser(key)'><img ng-src='{{userData[key].avatar}}'/> {{UsernameText(key)}}</button>          
                 </div>
                 <table ng-table="tableParams" class="table table-hover table-condensed" show-filter="true">
                     <col width="400">
