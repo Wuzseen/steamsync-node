@@ -14,7 +14,7 @@
             <div ng-controller='SteamGroupRecommender'>
                 <form id='add-user-form' ng-submit='AddUser()'> 
                     <input class='btn btn-default btn-round userformelement' type='submit' id='submit' value='Add User'/>
-                    <input placeholder='Enter username...' tooltips tooltip-size='large' tooltip-class='usn' tooltip-side='bottom' tooltip-template='Enter A Valid Steam Username or Profile URL. Profile cannot be private.' name='text' id='usr' class='form-control userformelement' ng-model='adduserfield'/>                                 
+                    <input placeholder='Enter username...' tooltips tooltip-size='medium' tooltip-class='usn' tooltip-side='right' tooltip-template='Enter A Valid Steam Username or Profile URL. Profile cannot be private.' name='text' id='usr' class='form-control userformelement' ng-model='adduserfield'/>                                 
                 </form>
                 {{lookupError}}
                 <h1>{{greeting}}</h1>
