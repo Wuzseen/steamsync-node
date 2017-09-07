@@ -50,3 +50,7 @@ a {
 tooltip tip.usn {
   min-width: 300;
 }
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
